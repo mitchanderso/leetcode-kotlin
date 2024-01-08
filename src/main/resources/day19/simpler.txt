@@ -1,0 +1,4 @@
+in{x<3:aa,m>2:A,R}
+aa{m<3:bb,R}
+bb{a<3:cc,R}
+cc{s<3:A,R}
