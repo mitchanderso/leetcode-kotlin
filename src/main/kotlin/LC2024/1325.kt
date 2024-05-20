@@ -32,14 +32,7 @@ class `1325` {
 
 
 
-
 }
-
-git filter-branch -f --env-filter \
-"GIT_AUTHOR_NAME='Mitch Anderson'; GIT_AUTHOR_EMAIL='mitch.anderso@gmail.com'; \
-GIT_COMMITTER_NAME='Mitch Anderson'; GIT_COMMITTER_EMAIL='mitch.anderso@gmail.com';" HEAD
-
-
 
 fun main() {
     val soln = `1325`()
