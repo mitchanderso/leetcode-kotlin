@@ -1,7 +1,5 @@
 package LC2024
 
-import kotlin.system.measureTimeMillis
-
 
 class `3151`() {
     fun isArraySpecial(nums: IntArray): Boolean {
@@ -17,11 +15,4 @@ class `3151`() {
 
 
 fun main() {
-    val soln = `279`()
-//    println( measureTimeMillis {  println(soln.perfectSquares(6255)) } )
-    println( measureTimeMillis {  println(soln.perfectSquares(6254)) } )
-
-
-
-
 }
