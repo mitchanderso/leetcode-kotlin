@@ -63,10 +63,10 @@ class `Day5` {
 
         // Map -> check that number, if any of the tasks after it are in the set, its bad
 
-        val invalidTasks = mutableListOf<List<String>>()
+        val invalidTasks = mutableListOf<MutableList<String>>()
 
         tasks.forEachIndexed { index, task ->
-            if (!isValid(cannotBeAfter, task)) invalidTasks.add(task)
+            if (!isValid(cannotBeAfter, task)) invalidTasks.add(task.toMutableList())
         }
 
         // To rearrange
@@ -74,8 +74,30 @@ class `Day5` {
         val validTasks = mutableListOf<List<String>>()
         invalidTasks.forEach { invalidTask ->
             val arranged = arrange(mutableListOf(), invalidTask.toMutableList(), 0, invalidTask.size, cannotBeAfter, mutableListOf<MutableList<String>>() )
-            println("Task completed $invalidTask")
+
             validTasks.add(arranged.first())
+        }
+
+        for (update in invalidTasks) {
+            var i = update.size - 1
+            while (i >= 0) {
+                val page = update[i]
+
+                val rule = cannotBeAfter[page]
+                if (rule != null) {
+                    for (target in rule) {
+                        val targetIdx = update.indexOf(target)
+                        if (targetIdx != -1 && targetIdx < i) {
+                            val tmp = update[targetIdx]
+                            update[targetIdx] = page
+                            update[i] = tmp
+                            i++ // reconsider this page after swapping
+                            break
+                        }
+                    }
+                }
+                i--
+            }
         }
 
         val ans = validTasks.sumOf { list ->
