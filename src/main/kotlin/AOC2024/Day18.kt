@@ -1,14 +1,8 @@
 package AOC2024
 
 
-import utils.Utils.pow
-import utils.Utils.split
 import java.io.File
-import java.util.LinkedList
-import java.util.Stack
-import java.util.stream.Gatherer.Integrator
-import kotlin.math.min
-import kotlin.math.pow
+import java.util.*
 
 
 class Day18 {
